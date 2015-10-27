@@ -12,6 +12,8 @@ devstack/tools/install_prereqs.sh
 rm -rf devstack
 
 git clone https://git.openstack.org/openstack/requirements
-pip install -r requirements/global-requirements.txt
+mkdir tmp
+pip install --cache-dir tmp -b tmp -U -r requirements/global-requirements.txt
 
 rm -rf requirements
+rm -rf tmp

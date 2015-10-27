@@ -6,8 +6,12 @@ dnf -y install rsyslog joe yum-utils net-tools nfs-utils mlocate telnet sudo git
 pip install -U pip
 pip install -U setuptools
 
-git clone https://git.openstack.org/openstack-dev/devstack.git
-
+git clone https://git.openstack.org/openstack-dev/devstack
 devstack/tools/install_prereqs.sh
 
-rm -r devstack
+rm -rf devstack
+
+git clone https://git.openstack.org/openstack/requirements
+pip install -r requirements/global-requirements.txt
+
+rm -rf requirements

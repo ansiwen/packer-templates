@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 
 #dnf -y update
-dnf -y install rsyslog joe yum-utils net-tools nfs-utils mlocate telnet sudo git dnf python-pip
+dnf -y install rsyslog joe yum-utils net-tools nfs-utils mlocate telnet sudo git dnf python-pip libvirt
 
 pip install -U pip
 pip install -U setuptools

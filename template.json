@@ -161,7 +161,7 @@
     "name": "devstack-base",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "devstack-base",
-    "version": "0.1.{{isotime \"200601021504\"}}",
+    "version": "0.1.2",
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "atlas_name": "{{env `ATLAS_NAME`}}"
   }

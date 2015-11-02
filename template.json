@@ -26,13 +26,13 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "512"
+          "2048"
         ],
         [
           "modifyvm",
           "{{.Name}}",
           "--cpus",
-          "1"
+          "2"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
@@ -61,8 +61,8 @@
       "vm_name": "{{ user `template` }}",
       "vmx_data": {
         "cpuid.coresPerSocket": "1",
-        "memsize": "512",
-        "numvcpus": "1"
+        "memsize": "2048",
+        "numvcpus": "2"
       }
     },
     {
@@ -125,43 +125,38 @@
   "provisioners": [
     {
       "environment_vars": [
-        "HOME_DIR=/home/vagrant",
         "http_proxy={{user `http_proxy`}}",
         "https_proxy={{user `https_proxy`}}",
         "no_proxy={{user `no_proxy`}}"
       ],
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -H -E -S bash '{{.Path}}'",
       "scripts": [
-        "scripts/fedora/fix-slow-dns.sh",
-        "scripts/common/sshd.sh",
         "scripts/fedora/22-build-tools.sh",
         "scripts/common/vmtools.sh",
-        "scripts/common/vagrant.sh",
         "scripts/fedora/devstack-requirements.sh",
-        "scripts/fedora/cleanup.sh",
-        "scripts/common/minimize.sh"
+        "scripts/fedora/cleanup.sh"
       ],
       "type": "shell"
     }
   ],
   "variables": {
     "arch": "64",
-    "box_basename": "fedora-22",
+    "box_basename": "devstack-base",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
     "git_revision": "__unknown_git_revision__",
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "b2acfa7c7c6b5d2f51d3337600c2e52eeaa1a1084991181c28ca30343e52e0df",
+    "iso_checksum": "9f1f2f19f75cc3b97da41878b5c86188fa8d27ed446bd97d9df615c137c77cfc",
     "iso_checksum_type": "sha256",
-    "iso_name": "Fedora-Server-DVD-x86_64-22.iso",
-    "ks_path": "fedora-22/ks.cfg",
+    "iso_name": "Fedora-Server-netinst-x86_64-22.iso",
+    "ks_path": "fedora-cloud-base-vagrant.ks",
     "mirror": "http://download.fedoraproject.org/pub/fedora/linux",
     "mirror_directory": "releases/22/Server/x86_64/iso",
     "name": "devstack-base",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "devstack-base",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "atlas_name": "{{env `ATLAS_NAME`}}"
   }

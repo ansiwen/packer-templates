@@ -82,7 +82,8 @@
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "type": "qemu",
-      "vm_name": "{{ user `template` }}"
+      "vm_name": "{{ user `template` }}",
+      "qemuargs": [[ "-m", "1024M" ]]
     }
   ],
   "post-processors": [
@@ -131,10 +132,11 @@
       ],
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -H -E -S bash '{{.Path}}'",
       "scripts": [
-        "scripts/fedora/22-build-tools.sh",
-        "scripts/common/vmtools.sh",
-        "scripts/fedora/devstack-requirements.sh",
-        "scripts/fedora/cleanup.sh"
+        "scripts/22-build-tools.sh",
+        "scripts/vmtools.sh",
+        "scripts/devstack-requirements.sh",
+        "scripts/cleanup.sh",
+        "scripts/minimize.sh"
       ],
       "type": "shell"
     }

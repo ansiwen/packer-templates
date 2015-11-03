@@ -186,8 +186,9 @@ echo .
 # Because memory is scarce resource in most cloud/virt environments,
 # and because this impedes forensics, we are differing from the Fedora
 # default of having /tmp on tmpfs.
-echo "Disabling tmpfs for /tmp."
-systemctl mask tmp.mount
+# (commented out. we do this at cleanup time.)
+#echo "Disabling tmpfs for /tmp."
+#systemctl mask tmp.mount
 
 # make sure firstboot doesn't start
 echo "RUN_FIRSTBOOT=NO" > /etc/sysconfig/firstboot

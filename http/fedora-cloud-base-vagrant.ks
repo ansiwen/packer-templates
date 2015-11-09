@@ -22,7 +22,7 @@ timezone --utc Etc/UTC
 
 auth --useshadow --enablemd5
 selinux --disabled
-user --name=none
+#user --name=none
 
 firewall --disabled
 

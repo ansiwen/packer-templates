@@ -1,8 +1,9 @@
 #!/bin/sh -eux
 
-case "$PACKER_BUILDER_TYPE" in
-  qemu) exit 0 ;;
-esac
+if [ "$PACKER_BUILDER_TYPE" == "qemu" ]; then
+    fstrim -v / ;
+    exit 0 ;
+fi
 
 set +e
 swapuuid="`/sbin/blkid -o value -l -s UUID -t TYPE=swap`";

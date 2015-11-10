@@ -114,7 +114,7 @@
     "headless": "",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "9f1f2f19f75cc3b97da41878b5c86188fa8d27ed446bd97d9df615c137c77cfc",
+    "iso_checksum": "32e0a15a1c71d0e2fd36a0af5b67a3b3af82976d2dfca0aefcb90d42f2ae6844",
     "iso_checksum_type": "sha256",
     "iso_name": "Fedora-Server-netinst-x86_64-23.iso",
     "ks_path": "fedora-cloud-base-vagrant.ks",

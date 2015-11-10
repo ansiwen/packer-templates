@@ -2,6 +2,7 @@
 
 if [ "$PACKER_BUILDER_TYPE" == "qemu" ]; then
     fstrim -v / ;
+    sync ;
     exit 0 ;
 fi
 

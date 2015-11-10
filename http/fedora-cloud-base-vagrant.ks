@@ -28,8 +28,8 @@ firewall --disabled
 
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=network,sshd,rsyslog
-#url --url=http://download.fedoraproject.org/pub/fedora/linux/releases/22/Server/x86_64/os/
-url --url=http://ftp-stud.hs-esslingen.de/pub/fedora/linux/releases/22/Server/x86_64/os/
+url --url=http://download.fedoraproject.org/pub/fedora/linux/releases/23/Server/x86_64/os/
+#url --url=http://ftp-stud.hs-esslingen.de/pub/fedora/linux/releases/22/Server/x86_64/os/
 zerombr
 clearpart --all
 part / --size 3000 --grow --fstype ext4
@@ -100,7 +100,7 @@ dnf -y update
 # https://bugzilla.redhat.com/show_bug.cgi?id=964299
 passwd -l root
 # remove the user anaconda forces us to make
-userdel -r none
+#userdel -r none
 
 # Kickstart specifies timeout in seconds; syslinux uses 10ths.
 # 0 means wait forever, so instead we'll go with 1.
@@ -186,9 +186,8 @@ echo .
 # Because memory is scarce resource in most cloud/virt environments,
 # and because this impedes forensics, we are differing from the Fedora
 # default of having /tmp on tmpfs.
-# (commented out. we do this at cleanup time.)
-#echo "Disabling tmpfs for /tmp."
-#systemctl mask tmp.mount
+echo "Disabling tmpfs for /tmp."
+systemctl mask tmp.mount
 
 # make sure firstboot doesn't start
 echo "RUN_FIRSTBOOT=NO" > /etc/sysconfig/firstboot
@@ -228,7 +227,7 @@ rm -f /var/lib/rpm/__db*
 # where sfdisk seems to be messing up the mbr.
 # Long-term fix is to address this in anaconda directly and remove this.
 # <https://bugzilla.redhat.com/show_bug.cgi?id=1015931>
-dd if=/usr/share/syslinux/mbr.bin of=/dev/vda
+dd if=/usr/share/syslinux/mbr.bin of=/dev/sda
 
 
 # FIXME: is this still needed?

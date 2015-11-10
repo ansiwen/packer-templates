@@ -116,14 +116,14 @@
     "https_proxy": "{{env `https_proxy`}}",
     "iso_checksum": "9f1f2f19f75cc3b97da41878b5c86188fa8d27ed446bd97d9df615c137c77cfc",
     "iso_checksum_type": "sha256",
-    "iso_name": "Fedora-Server-netinst-x86_64-22.iso",
+    "iso_name": "Fedora-Server-netinst-x86_64-23.iso",
     "ks_path": "fedora-cloud-base-vagrant.ks",
     "mirror": "http://download.fedoraproject.org/pub/fedora/linux",
-    "mirror_directory": "releases/22/Server/x86_64/iso",
+    "mirror_directory": "releases/23/Server/x86_64/iso",
     "name": "devstack-base",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "devstack-base",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "atlas_name": "{{env `ATLAS_NAME`}}"
   }

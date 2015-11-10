@@ -11,12 +11,10 @@ rm -rf devstack
 
 dnf -y install libvirt-devel sqlite-devel openldap-devel libjpeg-devel mysql rabbitmq-server
 
-git clone --depth=1 https://git.openstack.org/openstack/requirements
-
-pip install -U --no-cache-dir -b . --timeout 60 pip
-pip install -U --no-cache-dir -b . --timeout 60 setuptools
-pip install -U --no-cache-dir -b . --timeout 60 wheel
-pip install -U --no-cache-dir -b . --timeout 60 cffi
+pip install -U --timeout 60 pip
+pip install -U --timeout 60 setuptools
+pip install -U --timeout 60 wheel
+pip install -U --timeout 60 cffi
 
 cat >/etc/pip.conf <<EOF
 [global]
@@ -24,11 +22,10 @@ wheel-dir = /var/wheelhouse
 find-links = /var/wheelhouse
 EOF
 
-grep -v '^$\|#' requirements/global-requirements.txt | while read req ; do
-    pip wheel --no-cache-dir -b . --timeout 60 $req
-done
-grep -v '^$\|#' requirements/upper-constraints.txt.txt | while read req ; do
-    pip wheel --no-cache-dir -b . --timeout 60 $req
-done
-rm -rf requirements
+pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/global-requirements.txt
+pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/upper-constraints.txt
+pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/test-requirements.txt
+pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/nova/master/requirements.txt
+pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/nova/master/test-requirements.txt
+
 chown -R vagrant:vagrant /var/wheelhouse

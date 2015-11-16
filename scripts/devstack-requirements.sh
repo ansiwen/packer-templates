@@ -1,6 +1,6 @@
 #!/bin/sh -eux
 
-dnf -y install rsyslog joe yum-utils net-tools nfs-utils mlocate telnet sudo git dnf python-pip
+dnf -y install rsyslog joe yum-utils net-tools nfs-utils mlocate telnet sudo git dnf dnf-plugins-core python-pip
 
 mkdir -p /run/tmp
 cd /run/tmp
@@ -15,17 +15,3 @@ pip install -U --timeout 60 pip
 pip install -U --timeout 60 setuptools
 pip install -U --timeout 60 wheel
 pip install -U --timeout 60 cffi
-
-cat >/etc/pip.conf <<EOF
-[global]
-wheel-dir = /var/wheelhouse
-find-links = /var/wheelhouse
-EOF
-
-pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/global-requirements.txt
-pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/upper-constraints.txt
-pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/requirements/master/test-requirements.txt
-pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/nova/master/requirements.txt
-pip wheel --timeout 60 -r https://raw.githubusercontent.com/openstack/nova/master/test-requirements.txt
-
-chown -R vagrant:vagrant /var/wheelhouse

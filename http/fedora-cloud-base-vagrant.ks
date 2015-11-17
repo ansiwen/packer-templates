@@ -28,7 +28,7 @@ firewall --disabled
 
 network --bootproto=dhcp --device=link --activate --onboot=on
 services --enabled=network,sshd,rsyslog
-url --url=http://download.fedoraproject.org/pub/fedora/linux/releases/22/Server/x86_64/os/
+url --url=http://download.fedoraproject.org/pub/fedora/linux/releases/23/Server/x86_64/os/
 #url --url=http://ftp-stud.hs-esslingen.de/pub/fedora/linux/releases/22/Server/x86_64/os/
 zerombr
 clearpart --all

@@ -160,7 +160,7 @@
     "no_proxy": "{{env `no_proxy`}}",
     "template": "fedora-23",
     "version": "0.0.1",
-    "atlas_username": "{{env `ATLAS_USERNAME`}}",
-    "atlas_name": "{{env `ATLAS_NAME`}}"
+    "atlas_username": "{{env `ATLAS_BUILD_USERNAME`}}",
+    "atlas_name": "{{env `ATLAS_BUILD_NAME`}}"
   }
 }

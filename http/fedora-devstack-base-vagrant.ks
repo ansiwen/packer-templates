@@ -70,6 +70,7 @@ tar
 wget
 curl
 rsync
+nfs-utils
 dnf-yum
 
 # rescue mode generally isn't useful in the cloud context

@@ -68,6 +68,7 @@ kernel-core
 bzip2
 tar
 rsync
+nfs-utils
 
 # rescue mode generally isn't useful in the cloud context
 -dracut-config-rescue

@@ -137,7 +137,7 @@
         "scripts/22-build-tools.sh",
         "scripts/vmtools.sh",
         "scripts/devstack-requirements.sh",
-        "scripts/cleanup.sh",
+        "scripts/devstack-cleanup.sh",
         "scripts/minimize.sh"
       ],
       "type": "shell"
@@ -154,7 +154,7 @@
     "iso_checksum": "32e0a15a1c71d0e2fd36a0af5b67a3b3af82976d2dfca0aefcb90d42f2ae6844",
     "iso_checksum_type": "sha256",
     "iso_name": "Fedora-Server-netinst-x86_64-23.iso",
-    "ks_path": "fedora-cloud-base-vagrant.ks",
+    "ks_path": "fedora-devstack-base-vagrant.ks",
     "mirror": "http://download.fedoraproject.org/pub/fedora/linux",
     "mirror_directory": "releases/23/Server/x86_64/iso",
     "name": "devstack-base",

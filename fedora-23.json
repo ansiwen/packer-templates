@@ -144,7 +144,7 @@
   ],
   "variables": {
     "arch": "64",
-    "box_basename": "devstack-base",
+    "box_basename": "fedora-23",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
     "git_revision": "__unknown_git_revision__",
     "headless": "",
@@ -156,9 +156,9 @@
     "ks_path": "fedora-base-vagrant.ks",
     "mirror": "http://download.fedoraproject.org/pub/fedora/linux",
     "mirror_directory": "releases/23/Server/x86_64/iso",
-    "name": "devstack-base",
+    "name": "fedora-23",
     "no_proxy": "{{env `no_proxy`}}",
-    "template": "devstack-base",
+    "template": "fedora-23",
     "version": "0.0.1",
     "atlas_username": "{{env `ATLAS_USERNAME`}}",
     "atlas_name": "{{env `ATLAS_NAME`}}"
